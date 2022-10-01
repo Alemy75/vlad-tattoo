@@ -116,10 +116,10 @@ body {
   background-color: #e17250;
   color: white;
   transition: 0.4s;
-  transform: translateY(-300%);
+  transform: translateY(0);
 }
 .menu_active {
-  transform: translateY(-300%);
+  transform: translateY(0);
 }
 .menu__nav {
   display: flex;
@@ -215,7 +215,7 @@ body {
   padding: 129px 0;
 }
 .offer-block {
-  background: url("../img/form-bg.png") no-repeat center right;
+  background: url("") no-repeat center right;
   background-size: contain;
   background-color: #fff;
   box-shadow: 0 15px 25px rgba(0, 0, 0, 0.1);
