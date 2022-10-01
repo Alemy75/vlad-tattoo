@@ -116,10 +116,10 @@ body {
   background-color: #e17250;
   color: white;
   transition: 0.4s;
-  transform: translateY(0);
+  transform: translateY(-300);
 }
 .menu_active {
-  transform: translateY(0);
+  transform: translateY(-300);
 }
 .menu__nav {
   display: flex;
@@ -215,7 +215,7 @@ body {
   padding: 129px 0;
 }
 .offer-block {
-  background: url("") no-repeat center right;
+  background: url("../img/form-bg.png") no-repeat center right;
   background-size: contain;
   background-color: #fff;
   box-shadow: 0 15px 25px rgba(0, 0, 0, 0.1);
@@ -256,7 +256,7 @@ body {
 }
 .form__input {
   width: 100%;
-  border-right: none;
+  border-right: 1px;
 }
 .form__input-last {
   width: 100%;
@@ -267,12 +267,12 @@ body {
 }
 
 @media (max-width: 1169px) {
-  .offer {
+  .offer-block {
     background-position: center right -120px;
   }
 }
 @media (max-width: 768px) {
-  .offer {
+  .offer-block {
     background: none;
     background-color: #fff;
   }
