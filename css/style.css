@@ -116,10 +116,10 @@ body {
   background-color: #e17250;
   color: white;
   transition: 0.4s;
-  transform: translateY(-300);
+  transform: translateY(-300px);
 }
 .menu_active {
-  transform: translateY(-300);
+  transform: translateY(-300px);
 }
 .menu__nav {
   display: flex;
@@ -256,7 +256,7 @@ body {
 }
 .form__input {
   width: 100%;
-  border-right: 1px;
+  border-right: none;
 }
 .form__input-last {
   width: 100%;
@@ -285,5 +285,6 @@ body {
   }
   .form__input {
     margin-bottom: 20px;
+    border: 1px solid #dddddd;
   }
 }/*# sourceMappingURL=style.css.map */
