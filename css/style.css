@@ -75,6 +75,9 @@ body {
   .button-o {
     font-size: 10px;
   }
+  .form__button {
+    font-size: 10px;
+  }
 }
 .navbar {
   position: fixed;
@@ -271,10 +274,16 @@ body {
     background-position: center right -120px;
   }
 }
+@media (max-width: 1169px) {
+  .offer__subtitle {
+    max-width: 400px;
+  }
+}
 @media (max-width: 768px) {
   .offer-block {
     background: none;
     background-color: #fff;
+    padding: 15px;
   }
   .form__row {
     flex-direction: column;
