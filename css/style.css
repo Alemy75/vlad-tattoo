@@ -84,6 +84,12 @@ body {
   padding-left: 30px;
   border: 1px solid #dddddd;
 }
+.input:focus {
+  box-shadow: 0 0 4px rgb(110, 167, 109);
+}
+.input._error{
+  box-shadow: 0 0 4px rgb(168, 79, 79);
+}
 
 @media (max-width: 576px) {
   .button-o {
@@ -129,12 +135,12 @@ body {
 
 .menu {
   position: fixed;
-  z-index: 0;
+  z-index: 10;
   top: 80px;
   left: 0;
   width: 100%;
   padding: 16px 0;
-  background-color: #e17250;
+  background-color: #bd6043;
   color: white;
   transition: 0.4s;
   transform: translateY(-400px);
@@ -165,6 +171,10 @@ body {
   height: 80px;
   width: 70px;
 }
+.menu-button:hover {
+  cursor: pointer
+}
+
 .menu-button__line {
   display: block;
   width: 20px;

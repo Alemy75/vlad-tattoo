@@ -13,14 +13,14 @@
 </head>
 
 <body>
-    <header class="header">
+    <header class="header" id="main">
         <div class="menu">
             <div class="container">
                 <nav class="menu__nav">
-                    <a href="#" class="menu__link">Главная</a>
-                    <a href="#" class="menu__link">Примеры работ</a>
-                    <a href="#" class="menu__link">Записаться на сеанс</a>
-                    <a href="#" class="menu__link">Преимущества</a>
+                    <a href="#main" class="menu__link">Главная</a>
+                    <a href="#works" class="menu__link">Примеры работ</a>
+                    <a href="#offer" class="menu__link">Записаться на сеанс</a>
+                    <a href="#features" class="menu__link">Преимущества</a>
                 </nav>
             </div>
         </div>
@@ -42,10 +42,11 @@
                     </div>
                     <div class="navbar__landline">
                         <a class="navbar__phone" href="mailto:vlad-onuchin@mail.ru">vlad-onuchin@mail.ru</a>
-                        <span class="navbar__email navbar__small-text" href="mailto:alemax75962@gmail.com">ул. Ньютона,
-                            34в</span>
+                        <a href="#map" class="navbar__email navbar__small-text" href="mailto:alemax75962@gmail.com">ул. Ньютона,
+                            34в</a>
                     </div>
-                    <button class="button-o navbar__button">Получить консультацию</button>
+                    <a href="#offer" class="button-o navbar__button" style="text-decoration:none">Получить
+                        консультацию</a>
                 </div>
             </div>
         </div>
@@ -57,16 +58,16 @@
                 <span class="hero__subtitle">
                     От 700 р.
                 </span>
-                <button class="button hero__button">
+                <a href="#offer" class="button hero__button" style="text-decoration:none">
                     Записаться на сеанс
-                </button>
+                </a>
             </div>
         </div>
     </header>
 
     <main>
         <section class="offer bgsec">
-            <div class="container">
+            <div id="offer" class="container">
                 <div class="offer__block offer-block">
                     <h2 class="offer__title">
                         Оставить заявку на консультацию
@@ -74,20 +75,20 @@
                     <span class="offer__subtitle">
                         Консультация с мастером и обсуждение всех нюансов тату
                     </span>
-                    <form action="" class="form offer__form">
+                    <form action="" id="form" class="form offer__form">
                         <div class="form-group">
                             <div class="form__row">
                                 <div class="form__group">
                                     <lable class="form__lable">Имя</lable>
-                                    <input type="text" class="input form__input">
+                                    <input type="text" name="name" class="input form__input _req _name">
                                 </div>
                                 <div class="form__group">
                                     <lable class="form__lable">Фамилия</lable>
-                                    <input type="text" class="input form__input">
+                                    <input type="text" name="lastName" class="input form__input _req _lastName">
                                 </div>
                                 <div class="form__group">
                                     <lable class="form__lable">Номер телефона</lable>
-                                    <input type="tel" class="input form__input-last">
+                                    <input type="tel" name="phone" class="input form__input-last _req _phone">
                                 </div>
                             </div>
                             <div class="form__row-last">
@@ -99,7 +100,7 @@
             </div>
         </section>
         <section class="features section">
-            <div class="container">
+            <div class="container" id="features"                                                                                                                                                                                     >
                 <h2 class="section-title section__title">
                     Наши преимущества
                 </h2>
@@ -137,7 +138,7 @@
             </div>
         </section>
         <section class="section works">
-            <div class="container">
+            <div class="container" id="works">
                 <h2 class="works-title works__title">Примеры работ</h2>
                 <div class="works-slider">
                     <div class="owl-carousel">
@@ -177,14 +178,18 @@
                 </div>
             </div>
         </section> -->
-        <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Aed07fab2808131d37805cf3c1f2f77d1af48dab9a372c757c096fdffd1b8316c&amp;width=100%&amp;height=400&amp;lang=ru_RU&amp;scroll=true"></script>
+        <div id="map"><script type="text/javascript" charset="utf-8" async
+            src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Aed07fab2808131d37805cf3c1f2f77d1af48dab9a372c757c096fdffd1b8316c&amp;width=100%&amp;height=400&amp;lang=ru_RU&amp;scroll=true"></script></div>
+        
         <section class="section dev" style="padding: 40px 0; background-color: rgb(91, 91, 91);">
             <div class="container">
-                    <p class="dev-wrap" style="text-align: center; color: white; ">Разработано: <a href="https://vk.com/id284922097" style="text-decoration: none; color: rgb(255, 221, 163)">Alemy75</a></p>
+                <p class="dev-wrap" style="text-align: center; color: white; ">Разработано: <a
+                        href="https://vk.com/id284922097"
+                        style="text-decoration: none; color: rgb(255, 221, 163)">Alemy75</a></p>
             </div>
         </section>
     </main>
-    
+
     <script type="text/javascript" src="https://spikmi.org/Widget?Id=14918"></script>
     <script src="https://code.jquery.com/jquery-2.2.4.min.js"
         integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous">
@@ -193,9 +198,82 @@
     <script>
         $(document).ready(function () {
             $('.owl-carousel').owlCarousel();
-            $('.menu-button').on('click', function(){
+            $('.menu-button').on('click', function () {
                 $('.menu').toggleClass('menu_active')
-            }) 
+            })
+            $('a[href^="#"').on('click', function () {
+
+                let href = $(this).attr('href');
+
+                $('html, body').animate({
+                    scrollTop: $(href).offset().top -200 + "px"
+                });
+                return false;
+            });
+            const form = document.getElementById('form');
+            form.addEventListener('submit', formSend);
+
+            async function formSend(e) {
+                e.preventDefault();
+
+                let error = formValidate(form);
+                
+                let formData = new FormData(form);
+                if (error === 0) {
+                    let response = await fetch('sendmail.php', {
+                        method: 'POST',
+                        body: formData
+                    });
+                    if (response.ok) {
+                        let result = await response.json();
+                        alert('result.message');
+                        formPreview.innerHTML ='';
+                        form.reset();
+                    } else {
+                        alert("Ошибка отправки")
+                    }
+                } 
+                else {
+                    alert('Не все поля заполнены!')
+                }
+            }
+
+            function formValidate(e) {
+                let error = 0;
+                let formReq = document.querySelectorAll('._req');
+
+                for (let index = 0; index < formReq.length; index++){
+                    const input = formReq[index]
+                    formRemoveError(input);
+
+                    if (input.classList.contains('_phone')) {
+                        if (input.value === '') {
+                            formAddError(input);
+                            error++;
+                        }
+                    }
+                    if (input.classList.contains('_name')) {
+                        if (input.value === '') {
+                            formAddError(input);
+                            error++;
+                        }
+                    }
+                    if (input.classList.contains('_lastName')) {
+                        if (input.value === '') {
+                            formAddError(input);
+                            error++;
+                        }
+                    }
+                }
+            }
+            function formAddError(input) {
+                input.parentElement.classList.add('_error');
+                input.classList.add('_error');
+            }
+            function formRemoveError(input) {
+                input.parentElement.classList.remove('_error');
+                input.classList.remove('_error');
+            }
         });
     </script>
 </body>
