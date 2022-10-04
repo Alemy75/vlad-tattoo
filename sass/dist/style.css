@@ -42,6 +42,20 @@ body {
   color: #262626;
 }
 
+.section {
+  padding: 100px 0;
+}
+.section-title {
+  font-size: 25px;
+  text-transform: uppercase;
+  font-family: "Proxima Nova Semibold", sans-serif;
+  margin-bottom: 20px;
+  text-align: center;
+}
+.section__title {
+  margin-bottom: 100px;
+}
+
 .button-o {
   border: 2px solid #e17250;
   padding: 17px 22px;
@@ -76,6 +90,10 @@ body {
     font-size: 10px;
   }
 
+  .section::-webkit-meter-even-less-good-value {
+    font-size: 20px;
+  }
+
   .form__button {
     font-size: 10px;
   }
@@ -86,6 +104,7 @@ body {
   top: 0;
   width: 100%;
   background-color: #fff;
+  z-index: 9999;
 }
 .navbar-wrap {
   display: flex;
@@ -120,10 +139,10 @@ body {
   background-color: #e17250;
   color: white;
   transition: 0.4s;
-  transform: translateY(-300px);
+  transform: translateY(-400px);
 }
 .menu_active {
-  transform: translateY(-300px);
+  transform: translateY(-400px);
 }
 .menu__nav {
   display: flex;
@@ -285,7 +304,7 @@ body {
   .offer-block {
     background: none;
     background-color: #fff;
-    padding: 15px;
+    padding: 35px;
   }
 
   .form__row {
@@ -299,4 +318,59 @@ body {
     margin-bottom: 20px;
     border: 1px solid #dddddd;
   }
+}
+.features-block {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.features-block__item {
+  flex-basis: 33%;
+  text-align: center;
+  margin-bottom: 100px;
+}
+.features-block img {
+  width: 120px;
+  filter: invert(1%) sepia(7%) saturate(164%) hue-rotate(315deg) brightness(99%) contrast(89%);
+}
+
+@media (max-width: 991px) {
+  .features-block__item {
+    flex-basis: 50%;
+  }
+}
+@media (max-width: 768px) {
+  .features-block__item {
+    flex-basis: 100%;
+    margin-bottom: 50px;
+  }
+}
+.contacts {
+  background-color: #f6f7f9;
+}
+.contacts-block {
+  display: flex;
+  justify-content: space-around;
+  flex-basis: 33.33%;
+}
+.contacts-block__item {
+  text-align: center;
+}
+.contacts-block__item img {
+  margin-bottom: 25px;
+  width: 50px;
+}
+.contacts-block__item a {
+  font-size: 16px;
+  text-decoration: none;
+  color: #111;
+}
+
+@media (max-width: 597px) {
+  .features-block {
+    flex-direction: column;
+  }
+}
+.works {
+  text-align: center;
 }

@@ -1,0 +1,26 @@
+.contacts {
+  background-color: #f6f7f9;
+}
+.contacts-block {
+  display: flex;
+  justify-content: space-around;
+  flex-basis: 33.33%;
+}
+.contacts-block__item {
+  text-align: center;
+}
+.contacts-block__item img {
+  margin-bottom: 25px;
+  width: 50px;
+}
+.contacts-block__item a {
+  font-size: 16px;
+  text-decoration: none;
+  color: #111;
+}
+
+@media (max-width: 597px) {
+  .features-block {
+    flex-direction: column;
+  }
+}

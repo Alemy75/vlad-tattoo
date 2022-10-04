@@ -4,6 +4,7 @@
     top: 0
     width: 100%
     background-color: #fff
+    z-index: 9999
     &-wrap
         display: flex
         align-items: center
@@ -25,16 +26,15 @@
 .menu
     position: fixed
     z-index: 0
-    top: 80px
+    top: 180px
     left: 0
     width: 100%
     padding: 16px 0
     background-color: $primary
     color: white
-    transition: 0.4s
-    transform: translateY(-300px)
+    transition: all 0.4s ease
     &_active
-        transform: translateY(-300px)
+        transform: translate(10px, 0px)
     &__nav
         display: flex
         align-items: center
@@ -56,6 +56,8 @@
         border-left: 1px solid rgba(#87442f, 0.1)
         height: 80px
         width: 70px
+        &:hover
+            cursor: pointer
         &__line
             display: block
             width: 20px
