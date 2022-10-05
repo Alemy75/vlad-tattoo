@@ -42,7 +42,8 @@
                     </div>
                     <div class="navbar__landline">
                         <a class="navbar__phone" href="mailto:vlad-onuchin@mail.ru">vlad-onuchin@mail.ru</a>
-                        <a href="#map" class="navbar__email navbar__small-text" href="mailto:alemax75962@gmail.com">ул. Ньютона,
+                        <a href="#map" class="navbar__email navbar__small-text" href="mailto:alemax75962@gmail.com">ул.
+                            Ньютона,
                             34в</a>
                     </div>
                     <a href="#offer" class="button-o navbar__button" style="text-decoration:none">Получить
@@ -68,27 +69,27 @@
     <main>
         <section class="offer bgsec">
             <div id="offer" class="container">
-                <div class="offer__block offer-block">
+                <div id="message" class="offer__block offer-block">
                     <h2 class="offer__title">
                         Оставить заявку на консультацию
                     </h2>
                     <span class="offer__subtitle">
                         Консультация с мастером и обсуждение всех нюансов тату
                     </span>
-                    <form action="" id="form" class="form offer__form">
+                    <form id="form" class="form offer__form" method="POST">
                         <div class="form-group">
                             <div class="form__row">
                                 <div class="form__group">
                                     <lable class="form__lable">Имя</lable>
-                                    <input type="text" name="name" class="input form__input _req _name">
+                                    <input type="text" name="name" class="input form__input">
                                 </div>
                                 <div class="form__group">
                                     <lable class="form__lable">Фамилия</lable>
-                                    <input type="text" name="lastName" class="input form__input _req _lastName">
+                                    <input type="text" name="lastName" class="input form__input">
                                 </div>
                                 <div class="form__group">
                                     <lable class="form__lable">Номер телефона</lable>
-                                    <input type="tel" name="phone" class="input form__input-last _req _phone">
+                                    <input type="tel" name="phone" class="input form__input-last">
                                 </div>
                             </div>
                             <div class="form__row-last">
@@ -100,7 +101,7 @@
             </div>
         </section>
         <section class="features section">
-            <div class="container" id="features"                                                                                                                                                                                     >
+            <div class="container" id="features">
                 <h2 class="section-title section__title">
                     Наши преимущества
                 </h2>
@@ -178,9 +179,11 @@
                 </div>
             </div>
         </section> -->
-        <div id="map"><script type="text/javascript" charset="utf-8" async
-            src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Aed07fab2808131d37805cf3c1f2f77d1af48dab9a372c757c096fdffd1b8316c&amp;width=100%&amp;height=400&amp;lang=ru_RU&amp;scroll=true"></script></div>
-        
+        <div id="map">
+            <script type="text/javascript" charset="utf-8" async
+                src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Aed07fab2808131d37805cf3c1f2f77d1af48dab9a372c757c096fdffd1b8316c&amp;width=100%&amp;height=400&amp;lang=ru_RU&amp;scroll=true"></script>
+        </div>
+
         <section class="section dev" style="padding: 40px 0; background-color: rgb(91, 91, 91);">
             <div class="container">
                 <p class="dev-wrap" style="text-align: center; color: white; ">Разработано: <a
@@ -206,74 +209,45 @@
                 let href = $(this).attr('href');
 
                 $('html, body').animate({
-                    scrollTop: $(href).offset().top -200 + "px"
+                    scrollTop: $(href).offset().top - 200 + "px"
                 });
                 return false;
             });
-            const form = document.getElementById('form');
-            form.addEventListener('submit', formSend);
+            $('#form').submit(function () {
+                var errors = false;
 
-            async function formSend(e) {
-                e.preventDefault();
+                $(this).find('input').each(function () {
+                    if ($.trim($(this).val()) == '') {
+                        errors = true;
+                        $(this).next().text('Не заполнено поле ' + $(this).prev().text());
+                    }
+                });
 
-                let error = formValidate(form);
-                
-                let formData = new FormData(form);
-                if (error === 0) {
-                    let response = await fetch('sendmail.php', {
-                        method: 'POST',
-                        body: formData
+                if (!errors) {
+                    var data = $('#form').serialize();
+                    $.ajax({
+                        url: 'sendmail.php',
+                        type: 'POST',
+                        data: data,
+                        beforeSend: function () {
+                            alert('Письмо отправлено')
+                        },
+                        success: function (res) {
+                            if (res == 1) {
+                                $('#form').find('input:not(#submit)').val('');
+                                $('#submit').next().empty();
+                                alert('Письмо отправлено');
+                            } else {
+                                $('#submit').next().empty();
+                                alert('Письмо отправлено');
+                            }
+                        },
+                        error: function () {
+                            alert('Ошибка!');
+                        }
                     });
-                    if (response.ok) {
-                        let result = await response.json();
-                        alert('result.message');
-                        formPreview.innerHTML ='';
-                        form.reset();
-                    } else {
-                        alert("Ошибка отправки")
-                    }
-                } 
-                else {
-                    alert('Не все поля заполнены!')
                 }
-            }
-
-            function formValidate(e) {
-                let error = 0;
-                let formReq = document.querySelectorAll('._req');
-
-                for (let index = 0; index < formReq.length; index++){
-                    const input = formReq[index]
-                    formRemoveError(input);
-
-                    if (input.classList.contains('_phone')) {
-                        if (input.value === '') {
-                            formAddError(input);
-                            error++;
-                        }
-                    }
-                    if (input.classList.contains('_name')) {
-                        if (input.value === '') {
-                            formAddError(input);
-                            error++;
-                        }
-                    }
-                    if (input.classList.contains('_lastName')) {
-                        if (input.value === '') {
-                            formAddError(input);
-                            error++;
-                        }
-                    }
-                }
-            }
-            function formAddError(input) {
-                input.parentElement.classList.add('_error');
-                input.classList.add('_error');
-            }
-            function formRemoveError(input) {
-                input.parentElement.classList.remove('_error');
-                input.classList.remove('_error');
-            }
+            });
         });
     </script>
 </body>

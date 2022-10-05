@@ -64,6 +64,11 @@ body {
   font-family: "Proxima Nova Semibold", sans-serif;
   color: #e17250;
   background-color: white;
+  transition: all 0.4s ease;
+}
+
+.button-o:hover {
+  background-color: #ffccbc;
 }
 
 .button {
@@ -73,6 +78,14 @@ body {
   background-color: #e17250;
   color: white;
   font-family: "Proxima Nova Semibold", sans-serif;
+  transition: all 0.4s ease;
+  -webkit-box-shadow: 0px 4px 8px 0px rgba(34, 60, 80, 0.2);
+  -moz-box-shadow: 0px 4px 8px 0px rgba(34, 60, 80, 0.2);
+  box-shadow: 0px 4px 8px 0px rgba(34, 60, 80, 0.2);
+}
+
+.button:hover {
+  background-color: #a3482d;
 }
 
 .bgsec {
@@ -118,6 +131,7 @@ body {
 .navbar__mobile, .navbar__landline {
   text-align: right;
 }
+
 .navbar__phone {
   display: block;
   margin-bottom: 5px;
@@ -188,6 +202,7 @@ body {
   font-size: 18px;
   text-transform: uppercase;
   font-family: "Proxima Nova Semibold", sans-serif;
+  padding-bottom: 6px;
 }
 .logo__description {
   display: block;
@@ -338,7 +353,12 @@ body {
 .features-block img {
   width: 120px;
   filter: invert(1%) sepia(7%) saturate(164%) hue-rotate(315deg) brightness(99%) contrast(89%);
+  transition: all 0.4s ease;
 }
+
+.features-block img:hover {
+  transform: scale(1.1);
+} 
 
 @media (max-width: 991px) {
   .features-block__item {
