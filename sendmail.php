@@ -7,7 +7,7 @@ $mail->CharSet = 'utf-8';
 $name = $_POST['name'];
 $lastName = $_POST['lastName'];
 $phone = $_POST['phone'];
-
+$age = $_POST['age'];
 $mail->SMTPDebug = 3;                               // Enable verbose debug output
 
 $mail->isSMTP();                                      // Set mailer to use SMTP
@@ -29,7 +29,7 @@ $mail->addAddress('vlad-onuchin@mail.ru');     // Кому будет уходи
 $mail->isHTML(true);                                  // Set email format to HTML
 
 $mail->Subject = 'Заявка с тестового сайта';
-$mail->Body    = '' .$name.' '. $lastName. ' оставил(a) заявку, его телефон ' .$phone;
+$mail->Body    = '' .$name.' '. $lastName. ' оставил(a) заявку, его телефон: ' .$phone . ' Возраст: '. $age;
 $mail->AltBody = '';
 if(!$mail->send()) {
     echo 'Error';
